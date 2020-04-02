@@ -4,6 +4,7 @@ module ExceptionTrack
   class LogsController < ActionController::Base
     layout "exception-track/application"
     before_action :set_log, only: %i[show destroy]
+    http_basic_authenticate_with name: "admin", password: "admin@123"
 
     # GET /exception_logs
     def index
